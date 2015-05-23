@@ -6,8 +6,8 @@
 'use strict';
 
 
-function CallbackError(scope, callback, err, label, variable) {
-  self = this
+function CallbackError(callback, err, scope, label, variable) {
+  var self = this
   if (!callback) {
     self.scope = scope || ''
     return
@@ -19,7 +19,7 @@ function CallbackError(scope, callback, err, label, variable) {
     callback = scope
     scope    = self.scope
   } else {
-    scope    = self.scope + '.' + scope
+    scope    = (scope && scope.length > 0) ? self.scope + '.' + scope : self.scope
   }
   if ('string' !== typeof err) err = err.message
   if (label) {
