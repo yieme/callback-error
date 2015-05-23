@@ -3,23 +3,24 @@
  *  @copyright  Copyright (C) 2015 by Yieme
  *  @module     callback-error
  */
+ ;(function() {
 'use strict';
+var generalScope = ''
 
 
 function CallbackError(callback, err, scope, label, variable) {
-  var self = this
   if (!callback) {
-    self.scope = scope || ''
-    return self
+    generalScope = scope || ''
+    return CallbackError
   }
   if ('function' == typeof scope) {
     variable = label
     label    = err
     err      = callback
     callback = scope
-    scope    = self.scope
+    scope    = generalScope
   } else {
-    scope    = (scope && scope.length > 0) ? self.scope + '.' + scope : self.scope
+    scope    = (scope && scope.length > 0) ? generalScope + '.' + scope : generalScope
   }
   if ('string' !== typeof err) err = err.message
   if (label) {
@@ -42,3 +43,4 @@ function CallbackError(callback, err, scope, label, variable) {
 
 
 module.exports = CallbackError
+})();
