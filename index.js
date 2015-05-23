@@ -3,26 +3,17 @@
  *  @copyright  Copyright (C) 2015 by Yieme
  *  @module     callback-error
  */
- ;(function() {
 'use strict';
-var generalScope = ''
-
-
-function CallbackError(callback, err, scope, label, variable) {
-  if (!callback) {
-    generalScope = scope || ''
-    return CallbackError
-  }
+function CallbackError(scope, callback, err, label, variable) {
   if ('function' == typeof scope) {
     variable = label
     label    = err
     err      = callback
     callback = scope
-    scope    = generalScope
-  } else {
-    scope    = (scope && scope.length > 0) ? generalScope + '.' + scope : generalScope
+    scope    = ''
   }
-  if ('string' !== typeof err) err = err.message
+  scope = (scope) ? scope + ': ' : ''
+  if ('object' == typeof err) err = err.message
   if (label) {
     var type = typeof variable
     if (type == 'function') variable = type
@@ -37,10 +28,9 @@ function CallbackError(callback, err, scope, label, variable) {
   } else {
     label = ''
   }
-  callback(scope + ': ' + err + label)
+  callback(scope + err + label)
 }
 
 
 
 module.exports = CallbackError
-})();
