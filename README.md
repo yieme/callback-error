@@ -1,8 +1,7 @@
 # callback-error
 
-Callback error
+Because callback error messages should be helpful
 
-<!-- [![build status](https://secure.travis-ci.org/yieme/callback-error.png)](http://travis-ci.org/yieme/callback-error) -->
 
 ## Installation
 
@@ -16,9 +15,8 @@ npm i callback-error --save
 
 ```js
 var callbackError = require('callback-error')
-console.log(callbackError)())
 ```
 
 ## Rights
 
-Copyright (C) 2015 by yieme, License: MIT
+Copyright (C) 2015 by Yieme, License: MIT

@@ -1,7 +1,7 @@
 {
   "name": "callback-error",
   "version": "0.1.0",
-  "description": "Callback error",
+  "description": "Because callback error messages should be helpful",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -21,9 +21,7 @@
   "bugs": {
     "url": "https://github.com/yieme/callback-error/issues"
   },
-  "dependencies": { 
-    "make-error": "^1.0.2"
-      },
+  "dependencies": { },
   "devDependencies": {
     "object-attributes": "~0.1.1",
     "chai": "~1.10.0"

@@ -3,34 +3,40 @@
  *  @copyright  Copyright (C) 2015 by Yieme
  *  @module     callback-error
  */
- (function() {
-  'use strict';
-  var CallbackErrorError = require('make-error')('CallbackErrorError')
+'use strict';
 
-  /** Callback error
-   *  @class
-   *  @param      {object} options - The options
-   *  @return     {object}
-   */
-  function callbackErrorClass(options) {
-    /*jshint validthis: true */
-    var self = this
-    options = options || {}
-    self.value = options
-    return self
+
+function CallbackError(scope, callback, err, label, variable) {
+  self = this
+  if (!callback) {
+    self.scope = scope
+    return
   }
-
-
-
-  /** Callback error
-   *  @constructor
-   *  @param      {object} options - The options
-   *  @return     {object}
-   */
-  function callbackError(options) {
-    return new callbackErrorClass(options).value
+  if ('function' == typeof scope) {
+    variable = label
+    label    = err
+    err      = callback
+    callback = scope
+    scope    = self.scope
   }
+  if ('string' !== typeof err) err = err.message
+  if (label) {
+    var type = typeof variable
+    if (type == 'function') variable = type
+    if ('number,string'.indexOf(type) < 0) {
+      try {
+        variable = JSON.stringify(variable)
+      } catch(e) {
+        variable = type + 'with error ' + e.message
+      }
+    }
+    label = ', ' + label + ': ' + variable
+  } else {
+    label = ''
+  }
+  callback(scope + ': ' + err + label)
+}
 
 
-  module.exports = callbackError
-})();
+
+module.exports = CallbackError
