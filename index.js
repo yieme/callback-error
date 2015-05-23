@@ -23,7 +23,7 @@ function CallbackError(param) {
     }
   }
 
-  callback(scope + err + label)
+  cb(scope + err + label)
 }
 
 
