@@ -18,7 +18,7 @@ function CallbackError(param) {
     if (['in', 'err', 'error'].indexOf(i) < 0 && type != 'function') {
       if (label.length > 0) label += ', '
       label += i + ': '
-      if (['number', 'string'].indexOf(type)) < 0) value = JSON.stringify(value)
+      if (['number', 'string'].indexOf(type) < 0) value = JSON.stringify(value)
       label += value
     }
   }
