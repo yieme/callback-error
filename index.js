@@ -10,7 +10,7 @@ function CallbackError(callback, err, scope, label, variable) {
   var self = this
   if (!callback) {
     self.scope = scope || ''
-    return
+    return self
   }
   if ('function' == typeof scope) {
     variable = label
