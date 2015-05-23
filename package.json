@@ -1,6 +1,6 @@
 {
   "name": "callback-error",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Because callback error messages should be helpful",
   "main": "index.js",
   "scripts": {
