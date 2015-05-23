@@ -1,6 +1,6 @@
 {
   "name": "callback-error",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Because callback error messages should be helpful",
   "main": "index.js",
   "scripts": {
@@ -15,13 +15,16 @@
     "type": "git",
     "url": "https://github.com/yieme/callback-error"
   },
-  "keywords": ["callback","error"],
+  "keywords": [
+    "callback",
+    "error"
+  ],
   "author": "yieme",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yieme/callback-error/issues"
   },
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
     "object-attributes": "~0.1.1",
     "chai": "~1.10.0"
