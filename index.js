@@ -9,7 +9,7 @@
 function CallbackError(scope, callback, err, label, variable) {
   self = this
   if (!callback) {
-    self.scope = scope
+    self.scope = scope || ''
     return
   }
   if ('function' == typeof scope) {
@@ -18,6 +18,8 @@ function CallbackError(scope, callback, err, label, variable) {
     err      = callback
     callback = scope
     scope    = self.scope
+  } else {
+    scope    = self.scope + '.' + scope
   }
   if ('string' !== typeof err) err = err.message
   if (label) {
