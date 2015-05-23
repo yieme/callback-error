@@ -10,7 +10,7 @@ function CallbackError(param) {
   var err = param.error   || param.err || 'Missing CallbackError Error'
   if (!cb || !err) return
   if ('object' == typeof err) err = err.message
-  var scope = (param.in) ? param.in + ': ' : ''
+  var scope = (param.in && param.in.length > 0) ? param.in + ': ' : ''
   var label = ''
   for (var i in param) {
     var value = param[i]
